@@ -30,23 +30,44 @@ class Clientes:
 
         print("Cliente registrado correctamente")
         print(f"{self.clientes}")
-
+    '''
     def actualizar_cliente(self):
         if self.codCliente in self.clientes:
             cliente = self.clientes[self.codCliente]
             print(cliente)
+            self.clientes.update()
+            print(cliente)
+        else: 
+            print("El cliente no existe")
+    '''
+    def borrar_cliente(self):
+        if self.codCliente in self.clientes:
+            del self.clientes[self.codCliente]
+            print("Cliente borrado con exito")
+
+    def visualizar_cliente(self):
+        if not self.clientes:
+            print("No hay clientes registrados")
+        else:
+            print("---Datos del cliente---")
+            for self.codCliente, cliente in  self.clientes.items():
+                print(self.clientes)
 
 
-cliente1 = Clientes(1, "Ana", "Fernandez Garcia", "ToySL", "Gerente", 33213, "Asturias", 6827497482, 6/3/97)
+cliente1 = Clientes(1, "Ana", "Fernandez Garcia", "ToySL", "Gerente", 33213, "Asturias", 6827497482, "6/3/97")
+cliente2 = Clientes(2, "Juan", "Gomez Perez", "HISL", "Empleado", 33208, "Asturias", 638754873, "15/7/85")
 cliente1.registrar_cliente()
-'''
-    def actualizar_cliente():
-        pass
-    def borrar_cliente():
-        pass
-    def visualizar_cliente():
-        pass
+print("-------------------")
+cliente2.registrar_cliente()
+print("-------------------")
+cliente1.borrar_cliente()
+print("-------------------")
+cliente1.visualizar_cliente()
+print("-------------------")
+cliente2.visualizar_cliente()
 
+
+'''
 class Articulos:
     def __init__(self, codArticulo, nombre, descripcion, precioUnidad, unidadesStock, stockSeguridad, imagen):
         self.codArticulo = codArticulo
@@ -67,7 +88,8 @@ class Articulos:
         pass
     def visualizar_articulo():
         pass
-
+'''
+'''
 class Compra(Clientes, Articulos):
     def __init__(self, codCliente, codArticulo, fecha, unidades):
         Clientes().__init__(codCliente)
